@@ -1,4 +1,4 @@
-import {Book, User, IBook, IUser} from './models';
+import {Book, User, IUser} from './models';
 import {Library} from './library';
 import {Validation} from './validation';
 
@@ -14,7 +14,7 @@ export class LibraryService {
     }
 
     findBook() {
-        let input = prompt('Ввведіть назву чи автора книги');
+        const input = prompt('Ввведіть назву чи автора книги');
         if (input != null && input != '') {
             LibraryService.library.findBook(input);
         } else {
@@ -27,8 +27,8 @@ export class LibraryService {
 
         console.log(LibraryService.library);
 
-        let users = LibraryService.library.getUsers();
-        let books = LibraryService.library.getBooks();
+        const users = LibraryService.library.getUsers();
+        const books = LibraryService.library.getBooks();
 
         users.forEach((user) => {
             this.createUserElement(user);
@@ -89,12 +89,12 @@ export class LibraryService {
 
             let flag = true;
             if (button.textContent == 'Позичити') {
-                let userIdStr = prompt('введіть ID користувача');
+                const userIdStr = prompt('введіть ID користувача');
                 if (userIdStr != null || userIdStr == '') {
                     let userId;
                     try {
                         userId = parseInt(userIdStr);
-                        let user = this.getUserById(userId);
+                        const user = this.getUserById(userId);
                         if (user) {
                             if (user.canBorrow()) {
                                 book.borrow();
@@ -121,12 +121,12 @@ export class LibraryService {
             }
 
             if (button.textContent == 'Повернути' && flag) {
-                let userIdStr = prompt('введіть ID користувача');
+                const userIdStr = prompt('введіть ID користувача');
                 if (userIdStr != null || userIdStr == '') {
                     let userId;
                     try {
                         userId = parseInt(userIdStr);
-                        let user = this.getUserById(userId);
+                        const user = this.getUserById(userId);
                         if (user) {
                             if (user.canReturn(book.id)) {
                                 book.return();
