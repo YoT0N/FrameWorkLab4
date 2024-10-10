@@ -86,6 +86,6 @@ export class User implements IUser {
     }
 
     return(id: number): void {
-        this.borrowedBooks = this.borrowedBooks.filter((id) => id !== id);
+        this.borrowedBooks = this.borrowedBooks.filter((id1) => id1 !== id);
     }
 }

@@ -1,7 +1,5 @@
 import {Validation} from './validation';
-import {IBook, Book, IUser, User} from './models';
 import {LibraryService} from './services';
-import {Library} from './library';
 
 class App {
     private readonly validation = new Validation();
